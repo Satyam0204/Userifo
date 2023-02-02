@@ -2,6 +2,8 @@ import React,{useState} from 'react'
 import {
     AppShell,
     Header,
+    Navbar,
+    NavLink,
     Footer,
     Aside,
     Text,
@@ -15,11 +17,14 @@ import CustomNav from './Navbar';
 export const ApplicationContainer = ({children}) => {
     const theme = useMantineTheme();
     const [opened, setOpened] = useState(false);
+    const [active, setActive] = useState(0);
+
+    
+
   return (
     <AppShell
 
 
-    padding="md"
     styles={{
       main: {
         background: theme.colorScheme === 'dark' ? theme.colors.dark[8] : theme.colors.gray[0],
@@ -28,15 +33,13 @@ export const ApplicationContainer = ({children}) => {
     navbarOffsetBreakpoint="sm"
     asideOffsetBreakpoint="sm"
     navbar={
-      // <Navbar p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }}>
-      //   <Text>Application navbar</Text>
-      // </Navbar>
-      <CustomNav />
+      
+      <CustomNav opened={opened}/>
     }
     aside={
-      <MediaQuery smallerThan="sm" styles={{ display: 'none' }}>
+      <MediaQuery smallerThan="sm" styles={{ display: 'none'  }}>
         <Aside p="md" hiddenBreakpoint="sm" width={{ sm: 200, lg: 300 }}>
-          <Text>Application sidebar</Text>
+          <Text >Application sidebar</Text>
         </Aside>
       </MediaQuery>
     }
