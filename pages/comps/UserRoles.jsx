@@ -13,6 +13,8 @@ function UserRoles({ data }) {
             </tr>
           </thead>
           <tbody>
+            <div>
+
             {data.map((item) => (
               <div key={item.id}>
                 <tr>
@@ -30,6 +32,7 @@ function UserRoles({ data }) {
                 
               </div>
             ))}
+            </div>
           </tbody>
         </Table>
       </ScrollArea>
